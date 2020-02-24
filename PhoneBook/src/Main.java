@@ -15,7 +15,7 @@ public class Main implements Serializable {
         boolean bye = false;
         Scanner scan = new Scanner(System.in);
         do {
-            System.out.println("Welcome to Rakesh's Contact List App\n" +
+            System.out.println("Welcome to Abhishek Bhardwaj Contact List App\n" +
                     "Press 1 to add a new contact\n" +
                     "Press 2 to view all contacts\n" +
                     "Press 3 to search for a contact\n" +
