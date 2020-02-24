@@ -75,6 +75,6 @@ public class Main implements Serializable {
                 default:
                     System.out.println("Unknown Entry ..");
             }
-        } while (!thanlyou );
+        } while (!bye );
     }
 }
