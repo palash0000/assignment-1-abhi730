@@ -8,23 +8,18 @@ public class ContactsList implements Serializable {
     private Person head;
     private int contactLintLength;
 
-    /*
-     *   initialize of instance for contactsList
-     */
+    
     public ContactsList() {
         head = null;
         contactLintLength = 0;
     }
 
-    // method to add firstName,lastName,contactNumber,anotherContactNumber,emailAddress and anotherEmailAddress in String form
+    
     public void addInContactsLast(String firstName, String lastName, String contactNumber, String anotherContactNumber, String emailAddress) {
         Person current = head;
         Person previous = null;
         Person newNode = new Person();
 
-        /*
-         setting the data
-         */
         newNode.setFirstName(firstName);
         newNode.setLastName(lastName);
         newNode.setContactNumber(contactNumber);
@@ -36,19 +31,12 @@ public class ContactsList implements Serializable {
             contactLintLength++;
         } else {
 
-            /*
-             compare firstName of entries for priority by first letter in firstName
-             */
             for (int i = 0; i < contactLintLength; i++) {
                 String[] ourNames1 = current.getFirstName().split(" ");
                 String[] ourNames2 = newNode.getFirstName().split(" ");
 
                 int result = ourNames1[ourNames1.length - 1].compareToIgnoreCase(ourNames2[ourNames2.length - 1]);
 
-                /*
-                 *  if First Name entered goes before what's stored in the head,
-                 *  new entry becomes the head
-                 */
                 if (result > 0) {
                     if (previous == null) {
                         newNode.setNext(current);
@@ -56,19 +44,11 @@ public class ContactsList implements Serializable {
                         contactLintLength++;
                         break;
                     }
-                    /*
-                     *   this section cycles through the "body" of the nodes if
-                     *   it's not the tail
-                     */
                     previous.setNext(newNode);
                     newNode.setNext(current);
                     contactLintLength++;
                     break;
                 } else
-                    /*
-                     *  if the entry replaces node at the tail,
-                     *  this entry becomes the new tail
-                     */ {
                     if (current.getNext() == null) {
                         current.setNext(newNode);
                         newNode.setNext(null);
@@ -82,16 +62,10 @@ public class ContactsList implements Serializable {
         }
     }
 
-    /*
-     *  method to use if the linked list is empty
-     */
     public boolean isEmpty() {
         return (contactLintLength == 0);
     }
 
-    /*
-     *  method to printContactsList
-     */
     public void printContactsList() {
         Person tempNode = head;
         if (head == null) {
@@ -109,9 +83,6 @@ public class ContactsList implements Serializable {
         System.out.println();
     }
 
-    /*
-     *  method used to search through the names in the string
-     */
     public void searchByFirstName(String firstName) {
         Person current = head;
         boolean empty = true;
@@ -127,12 +98,9 @@ public class ContactsList implements Serializable {
                     System.out.println("-------- * -------- * -------- * --------");
                     empty = false;
                 }
-                // go to the next node
+                
                 current = current.getNext();
             }
-            /*
-             * if condition for contact doesn't found
-             */
             if (empty) {
                 System.out.println("NO RESULTS FOUND!");
             }
@@ -140,9 +108,6 @@ public class ContactsList implements Serializable {
 
     }
 
-    /*
-     *   method to delete contact by using index concept
-     */
     public void displayContactsName() {
         Person current = head;
         System.out.println("Here are all your contacts:");
@@ -185,9 +150,6 @@ public class ContactsList implements Serializable {
             if (empty) {
                 System.out.println("Contact Not Found");
             } else {
-                /*
-                 * Notification of Successfully deletion of Contacts
-                 */
                 System.out.println(current.getFirstName() + " " + current.getLastName() + "'s contact deleted from list!");
             }
         }
